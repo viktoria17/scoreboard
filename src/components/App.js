@@ -49,28 +49,24 @@ class App extends Component {
 	};
 
 	handleRemovePlayer = (id) => {
-		this.setState(prevState => {
-			return {
-				players: prevState.players.filter(p => p.id !== id)
-			};
-		});
+		this.setState(prevState => ({
+			players: prevState.players.filter(p => p.id !== id)
+		}));
 	};
 
 	previousPlayerId = 4;
 
 	handleAddPlayer = (name) => {
-		this.setState((prevState) => {
-			return {
-				players: [
-					...prevState.players,
-					{
-						name,
-						score: 0,
-						id: this.previousPlayerId += 1
-					}
-				]
-			}
-		});
+		this.setState((prevState) => ({
+			players: [
+				...prevState.players,
+				{
+					name,
+					score: 0,
+					id: this.previousPlayerId += 1
+				}
+			]
+		}));
 	};
 
 	render() {
