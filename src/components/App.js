@@ -59,10 +59,10 @@ class App extends Component {
 	previousPlayerId = 4;
 
 	handleAddPlayer = (name) => {
-		this.setState(() => {
+		this.setState((prevState) => {
 			return {
 				players: [
-					...this.state.players,
+					...prevState.players,
 					{
 						name,
 						score: 0,
