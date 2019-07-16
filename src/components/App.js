@@ -56,6 +56,23 @@ class App extends Component {
 		});
 	};
 
+	previousPlayerId = 4;
+
+	handleAddPlayer = (name) => {
+		this.setState(() => {
+			return {
+				players: [
+					...this.state.players,
+					{
+						name,
+						score: 0,
+						id: this.previousPlayerId += 1
+					}
+				]
+			}
+		});
+	};
+
 	render() {
 		return (
 			<div className="scoreboard">
@@ -74,7 +91,7 @@ class App extends Component {
 						changeScore={this.handleScoreChange}
 					/>
 				)}
-				<AddPlayerForm />
+				<AddPlayerForm addPlayerName={this.handleAddPlayer} />
 			</div>
 		);
 	}
